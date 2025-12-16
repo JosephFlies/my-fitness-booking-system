@@ -1,9 +1,17 @@
-const calculatePrice = (basePrice, userType) => {
-    if (userType === 'PREMIUM') {
-        return basePrice * 0.90; // 10% discount
+const calculatePrice = (basePrice, userType, occupancy) => {
+    let finalPrice = basePrice;
+
+    // Rule 1: Surge Pricing (If occupancy > 80%, increase price by 20%)
+    if (occupancy > 0.80) {
+        finalPrice = finalPrice * 1.20;
     }
-    return basePrice;
+
+    // Rule 2: Premium Discount (Apply after surge pricing)
+    if (userType === 'PREMIUM') {
+        finalPrice = finalPrice * 0.90; // 10% discount
+    }
+
+    return finalPrice;
 };
 
-// This line allows other files (like your test) to use this function
 module.exports = { calculatePrice };
