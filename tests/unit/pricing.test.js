@@ -25,4 +25,15 @@ describe('Pricing Service Rules', () => {
         
         expect(finalPrice).toBe(120); // Expect 120
     });
+
+    // Test Case 4: Boundary Check
+    test('Should NOT increase price if capacity is exactly 80%', () => {
+        const basePrice = 100;
+        const userType = 'STANDARD';
+        const occupancy = 0.80; // Exactly on the boundary
+        
+        const finalPrice = calculatePrice(basePrice, userType, occupancy);
+        
+        expect(finalPrice).toBe(100); // Should still be base price, NOT 120
+    });
 });
