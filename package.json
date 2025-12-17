@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "express": "^5.2.1",
+    "fast-check": "^4.4.0",
     "supertest": "^7.1.4"
   }
 }
