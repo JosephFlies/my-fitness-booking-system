@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 10
+      arrivalRate: 5
+    - duration: 20
+      arrivalRate: 50
+      name: "Surge Attack"
+scenarios:
+  - flow:
+      - post:
+          url: "/api/pricing/calculate"
+          json:
+            basePrice: 100
+            userType: "STANDARD"
+            occupancy: 0.90
