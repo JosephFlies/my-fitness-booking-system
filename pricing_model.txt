@@ -1,0 +1,4 @@
+# Parameters for Pricing Service
+UserType: STANDARD, PREMIUM
+Occupancy: LOW, MEDIUM, HIGH, OVER_80
+BasePrice: 100, 200
